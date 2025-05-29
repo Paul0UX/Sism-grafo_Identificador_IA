@@ -2,9 +2,9 @@ import os
 import shutil
 
 # Caminho para a pasta com as imagens 
-pasta_imagens = r"C:\Users\aluno\Desktop\Estudando"
+pasta_imagens = r"C:\Users\aluno\Desktop\identificador\Sism-grafo_Identificador_IA-1"
 # Pasta onde as cópias serão salvas
-pasta_destino = r"C:\Users\aluno\Desktop\Estudando\Replicadas"
+pasta_destino = r"C:\Users\aluno\Desktop\identificador\Sism-grafo_Identificador_IA-1\Replicadas"
 os.makedirs(pasta_destino, exist_ok=True)
 
 # Tamanho máximo
