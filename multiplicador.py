@@ -2,13 +2,13 @@ import os
 import shutil
 
 # Caminho para a pasta com as imagens 
-pasta_imagens = r"C:\Users\MICRO\Desktop\Arquivos_sismicos"
+pasta_imagens = r"C:\Users\aluno\Desktop\Sismografo\Sism-grafo_Identificador_IA"
 # Pasta onde as cópias serão salvas
-pasta_destino = r"C:\Users\MICRO\Desktop\Arquivos_sismicos\Replicado"
+pasta_destino = r"C:\Users\aluno\Desktop\Sismografo\Sism-grafo_Identificador_IA\Replicadas"
 os.makedirs(pasta_destino, exist_ok=True)
 
-# Tamanho máximo 10GB
-tamanho_maximo = 10 * 1024 * 1024 * 1024  
+# Tamanho máximo
+tamanho_maximo = 8 * 1024 * 1024 * 1024  
 
 # Inicialização de variáveis
 tamanho_total = 0
@@ -45,9 +45,9 @@ while tamanho_total < tamanho_maximo:
         if tamanho_total >= tamanho_maximo:
             break
 
-# Conversão para MB e GB para exibição
-tamanho_total_mb = tamanho_total / (1024 * 1024)  # em MB
-tamanho_total_gb = tamanho_total / (1024 * 1024 * 1024)  # em GB
+# Conversão de MB e GB para exibição
+tamanho_total_mb = tamanho_total / (1024 * 1024) #MB
+tamanho_total_gb = tamanho_total / (1024 * 1024 * 1024) #GB
 
 print(f"Total de imagens duplicadas: {contador_copias - 1}")
 print(f"Tamanho total após duplicar: {tamanho_total_mb:.2f} MB")
