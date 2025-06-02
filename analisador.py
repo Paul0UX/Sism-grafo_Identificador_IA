@@ -11,10 +11,10 @@ minutos_por_linha = 60
 linhas_por_dia = 24
 
 # Configurações para controle (pode alterar aqui)
-NUM_THREADS = 16  # Apenas para exibir e simular threads; não roda em paralelo
+NUM_THREADS = 1  # Apenas para exibir e simular threads; não roda em paralelo
 
 # Caminho das imagens
-caminho_das_imagens = r"C:\Users\aluno\Desktop\Sismografo\Sism-grafo_Identificador_IA\Replicadas"
+caminho_das_imagens = r"C:\Users\aluno\Desktop\Sismografo\Sism-grafo_Identificador_IA\replicadas"
 arquivos = [f for f in os.listdir(caminho_das_imagens) if f.endswith(".png")]
 arquivos.sort()
 
