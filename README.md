@@ -1,3 +1,19 @@
+**Relatório Técncio**
+
+*Descrição Geral*
+O projeto tem como objetivo identificar eventos sísmicos em imagens de sismógrafos utilizando técnicas de paralelização em múltiplos núcleos, para aumentar a eficiência da análise. O sistema processa imagens e retorna, em formato tabular, os horários aproximados e intensidade dos eventos destaados.
+
+*Tecnologias utilizadas*
+-Phyton 3.x
+-OpenCV
+-NumPy
+-Pandas
+-TQDM
+-Multiprocessing
+-Glob / OS / Shutil
+
+*Estrutura do Projeto*
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Sism-grafo_Identificador_IA
 Uma IA capaz de identificar um abalo sísmico em meio a uma quantidade massiva de imagens(arquivos)
 
