@@ -7,6 +7,12 @@ from tqdm import tqdm
 import time
 from math import ceil
 import glob
+from argparse import ArgumentParser
+
+parser = ArgumentParser(description="Processa imagens para detectar eventos sísmicos")
+parser.add_argument("-p", "--processos", type=int, default=1, help="Número de processos (1 = serial)")
+args = parser.parse_args()
+n_processos = args.processos
 
 # Configurações do sismograma
 minutos_por_linha = 60
@@ -64,7 +70,8 @@ def processar_imagem(nome_arquivo):
 if __name__ == "__main__":
     inicio = time.time()
     total_imagens = len(arquivos)
-    print(f"Processando {total_imagens} imagens com {cpu_count()} núcleos...")
+    print(f"🔧Processando {total_imagens} imagens com {n_processos} processo(s)...")
+
 
     # Definindo tamanho do lote
     lote_tamanho = 2000
@@ -76,8 +83,11 @@ if __name__ == "__main__":
         fim_lote = min((i + 1) * lote_tamanho, total_imagens)
         arquivos_lote = arquivos[inicio_lote:fim_lote]
 
-        with Pool(cpu_count()) as pool:
-            resultados = list(tqdm(pool.imap_unordered(processar_imagem, arquivos_lote), total=len(arquivos_lote)))
+        if n_processos == 1:
+            resultados = [processar_imagem(arq) for arq in tqdm(arquivos_lote)]
+        else:
+            with Pool(n_processos) as pool:
+                resultados = list(tqdm(pool.imap_unordered(processar_imagem, arquivos_lote), total=len(arquivos_lote)))
 
         eventos = [e for sublist in resultados for e in sublist]
         df_lote = pd.DataFrame(eventos)
@@ -105,9 +115,7 @@ if __name__ == "__main__":
     # Eventos por imagem
     df_final["eventos_por_imagem"] = df_final.groupby("imagem")["imagem"].transform("count")
 
-    # (Opcional) Apagar arquivos intermediários
-    # for f in arquivos_lotes:
-    #     os.remove(f)
-
     fim = time.time()
     print(f"⏱️ Tempo total de execução: {round(fim - inicio, 2)} segundos")
+    print(f"🧵 Execução finalizada usando {n_processos} processo(s).")
+
