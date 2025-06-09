@@ -16,3 +16,5 @@ Site utilizado: https://www.iris.edu/app/station_monitor/
 ![4threads](img_readme/4.png)
 ![2threads](img_readme/2.png)
 ![1threads](img_readme/1.png)
+
+quantidade de arquivos = 74.315

@@ -10,11 +10,8 @@ from math import ceil
 minutos_por_linha = 60
 linhas_por_dia = 24
 
-# Configurações para controle (pode alterar aqui)
-NUM_THREADS = 1  # Apenas para exibir e simular threads; não roda em paralelo
-
 # Caminho das imagens
-caminho_das_imagens = r"C:\Users\aluno\Desktop\Sismografo\Sism-grafo_Identificador_IA\replicadas"
+caminho_das_imagens = r"C:\Users\aluno\Desktop\Paralelismo\Sism-grafo_Identificador_IA\replicadas"
 arquivos = [f for f in os.listdir(caminho_das_imagens) if f.endswith(".png")]
 arquivos.sort()
 
@@ -65,7 +62,7 @@ def processar_imagem(nome_arquivo):
 if __name__ == "__main__":
     inicio = time.time()
     total_imagens = len(arquivos)
-    print(f"Processando {total_imagens} imagens serialmente com {NUM_THREADS} thread(s) configurada(s) (não paralelismo real).")
+    print(f"Processando {total_imagens} imagens de forma completamente serial...")
 
     # Definindo tamanho do lote
     lote_tamanho = 2000
@@ -78,13 +75,13 @@ if __name__ == "__main__":
         arquivos_lote = arquivos[inicio_lote:fim_lote]
 
         resultados = []
-        # Processamento serial com barra de progresso
         for arquivo in tqdm(arquivos_lote, desc=f"Lote {i+1}"):
-            resultados.append(processar_imagem(arquivo))
+            eventos = processar_imagem(arquivo)
+            resultados.append(eventos)
 
-        eventos = [e for sublist in resultados for e in sublist]
-        df_lote = pd.DataFrame(eventos)
+        eventos_flat = [e for sublist in resultados for e in sublist]
+        df_lote = pd.DataFrame(eventos_flat)
         df_lote.to_csv(f"lotes/lote_{i:03d}.csv", index=False)
 
     fim = time.time()
-    print(f"⏱️ Tempo total de execução: {round(fim - inicio, 2)} segundos")
+    print(f"\n✅ Processamento concluído em {round(fim - inicio, 2)} segundos.")
