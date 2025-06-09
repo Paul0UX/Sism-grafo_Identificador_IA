@@ -2,13 +2,13 @@ import os
 import shutil
 
 # Caminho para a pasta com as 20 imagens
-pasta_imagens = r"C:\Users\Leandro\Desktop\Sism-grafo_Identificador_IA\imagens_sis"
+pasta_imagens = r"C:\Users\aluno\Desktop\Sism-grafo_Identificador_IA\imagens_sis"
 # Pasta onde as cópias serão salvas
-pasta_destino = r"C:\Users\Leandro\Desktop\Sism-grafo_Identificador_IA\replicadas"
+pasta_destino = r"C:\Users\aluno\Desktop\Sism-grafo_Identificador_IA\replicadas"
 os.makedirs(pasta_destino, exist_ok=True)
 
-# Tamanho máximo em bytes (10 GB)
-tamanho_maximo = 10 * 1024 * 1024 * 1024  
+# Tamanho máximo em bytes (50 GB)
+tamanho_maximo = 50 * 1024 * 1024 * 1024  
 
 # Inicialização de variáveis
 tamanho_total = 0
