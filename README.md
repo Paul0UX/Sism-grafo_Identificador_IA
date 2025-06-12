@@ -15,13 +15,23 @@ O projeto tem como objetivo identificar eventos sísmicos em imagens de sismógr
 **Estrutura do Projeto**
 (Quer que coloque a estrtutura (pastas) do projeto ?
 
-**Pré-processament: Multiplicação das Imagens ('multiplicador.py)**
+**Pré-processamento: Multiplicação das Imagens ('multiplicador.py)**
 - As 20 images originais são obtidas manualmente
 - O script "multiplicador.py"
 - - As imagens são nomeadas de forma incremental, preservando o formato ".png".
   
  *Objetivo:* Criar uma base de dados grande o suficiente para justificar o uso do paralelismo. Multiplicamos ate chegar em 50gb e comportar X arquivos.
 
+**Detecção de Eventos:** 'Analisador.py'
+- As imagens replicadas são processadas em paralelo por todos os núcleos disponíveis da máquina.
+  *Técnicas aplicadas:*
+  - Leitura em escala de cinza;
+  - Desfoque;
+  - Inversão de cores;
+  - Extração de contornos ('cv2.findContours');
+  *Saída:*
+  Um arquivo '.csv' com as colunas:
+  -'imagem', 'hora', 'minuto', 'segundo', 'intensidade'
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Sism-grafo_Identificador_IA
 Uma IA capaz de identificar um abalo sísmico em meio a uma quantidade massiva de imagens(arquivos)
