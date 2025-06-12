@@ -13,6 +13,15 @@ O projeto tem como objetivo identificar eventos sísmicos em imagens de sismógr
 -Glob / OS / Shutil
 
 **Estrutura do Projeto**
+(Quer que coloque a estrtutura (pastas) do projeto ?
+
+**Pré-processament: Multiplicação das Imagens ('multiplicador.py)**
+- As 20 images originais são obtidas manualmente
+- O script "multiplicador.py"
+- - As imagens são nomeadas de forma incremental, preservando o formato ".png".
+  
+ *Objetivo:* Criar uma base de dados grande o suficiente para justificar o uso do paralelismo. Multiplicamos ate chegar em 50gb e comportar X arquivos.
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Sism-grafo_Identificador_IA
 Uma IA capaz de identificar um abalo sísmico em meio a uma quantidade massiva de imagens(arquivos)
