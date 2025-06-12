@@ -43,3 +43,20 @@ Laboratorio de analise: Nana, Peru NNA_II, Vertical Component
 Site utilizado: https://www.iris.edu/app/station_monitor/
 
 ![multiparelelismo](imagens_me/resultado.png)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+**Instruções para o relatório**
+
+ninguém é obrigado a ler o relatório todo para saber oq aconteceu (deixar isso claro na introdução)
+
+Descrição do problema / justificativa
+
+Descrição da solução
+
+Resultados -> tabela // threads || tempo || speedup || eficiência
+
+pq é importante seu trabalho, qual a contribuição dele
+
+Conclusão
+
+No dia da entrega, além do relatório, temos que fazer uma apresentação (contendo exatos 4 slides)
