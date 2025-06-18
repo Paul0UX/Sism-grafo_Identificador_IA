@@ -24,16 +24,7 @@ Na documentação tem que ter um link para pessoa que esta visualizando baixar o
 *****Relatório Técncio*****
 
 **Descrição Geral**
-O projeto tem como objetivo identificar eventos sísmicos em imagens de sismógrafos utilizando técnicas de paralelização em múltiplos núcleos, para aumentar a eficiência da análise. O sistema processa imagens e retorna, em formato tabular, os horários aproximados e intensidade dos eventos destaados.
-
-**Tecnologias utilizadas**
--Phyton 3.x
--OpenCV
--NumPy
--Pandas
--TQDM
--Multiprocessing
--Glob / OS / Shutil
+O projeto tem como objetivo identificar eventos sísmicos em imagens de sismógrafos utilizando técnicas de paralelização em múltiplos núcleos, para aumentar a eficiência da análise. O sistema processa imagens e retorna, em formato tabular, os horários aproximados e intensidade dos eventos detectados.
 
 **Estrutura do Projeto**
 (Quer que coloque a estrtutura (pastas) do projeto ?
@@ -66,3 +57,13 @@ Laboratorio de analise: Nana, Peru NNA_II, Vertical Component
 Site utilizado: https://www.iris.edu/app/station_monitor/
 
 ![multiparelelismo](imagens_me/resultado.png)
+
+COLOCAR DENTRO DO ARQUIVO NECESSÁRIO:
+**Tecnologias utilizadas**
+-Phyton 3.x
+-OpenCV
+-NumPy
+-Pandas
+-TQDM
+-Multiprocessing
+-Glob / OS / Shutil
