@@ -83,7 +83,7 @@ Config da maquina utilizada:
 -16 GB DDR5 (1x16GB) 5600MT/s
 -SSD de 512GB PCIe NVMe M.2 (Classe 25)
 
-Introdução
+# Introdução
 Iniciamos esta pesquisa acadêmica de programação paralela com o objetivo de desenvolver um sistema em Python onde uma inteligência artificial analisa uma grande quantidade de imagens, extraindo dados relevantes. Esses dados provêm do "Laboratório de Análise: Nana, Peru NNA_II, Vertical Component", que monitora e analisa abalos sísmicos na região do Peru.
 
 ![simografo_dado](imagens_sis/1.png)
@@ -118,10 +118,7 @@ A realização de testes com diferentes quantidades de processos (1, 2, 4, 6, 8,
 
 # Grafico
 
-
-
-
-
+![grafico](resultados/grafico.png)
 
 
 # Resultado serial:
@@ -130,31 +127,31 @@ A realização de testes com diferentes quantidades de processos (1, 2, 4, 6, 8,
 
 # Resuldados o multiprocessamento:
 ** 1 thread
-![1 thread](resultados/1.png)
+![1 thread](resultados/01th.png)
 
 ** 2 threads
-![1 thread](resultados/2.png)
+![2 threads](resultados/02th.png)
 
 ** 4 threads
-![1 thread](resultados/4.png)
+![4 threads](resultados/04th.png)
 
 ** 6 threads
-![1 thread](resultados/6.png)
+![6 threads](resultados/06th.png)
 
 ** 8 threads
-![1 thread](resultados/8.png)
+![8 threads](resultados/08th.png)
 
 ** 10 threads
-![1 thread](resultados/10.png)
+![10 threads](resultados/10th.png)
 
 ** 12 threads
-![1 thread](resultados/12.png)
+![12 threads](resultados/12th.png)
 
 ** 14 threads
-![1 thread](resultados/14.png)
+![14 threads](resultados/14th.png)
 
 ** 16 threads
-![1 thread](resultados/16.png)
+![16 threads](resultados/16th.png)
 
 
 # Conclusão
