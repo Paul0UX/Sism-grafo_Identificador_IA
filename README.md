@@ -38,9 +38,11 @@ A realização de testes com diferentes quantidades de processos (1, 2, 4, 6, 8,
 | 14                | 257.48     | 3.862        | +286.20%     |
 | 16                | 256.28     | 3.878        | +287.80%     |
 
-# Grafico
+# Graficos
 
 ![grafico](resultados/grafico.png)
+
+![grafico-linha](resultados/grafico-linha.png)
 
 
 # Resultado serial:
