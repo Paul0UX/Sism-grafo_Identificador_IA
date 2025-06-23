@@ -49,7 +49,7 @@ A realização de testes com diferentes quantidades de processos (1, 2, 4, 6, 8,
 
 ![serial](resultados/serial.png)
 
-# Resuldados o multiprocessamento:
+# Resultados o multiprocessamento:
 ** 1 thread
 ![1 thread](resultados/01th.png)
 
