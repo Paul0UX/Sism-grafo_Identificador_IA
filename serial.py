@@ -45,12 +45,15 @@ def processar_imagem(nome_arquivo):
             minuto_idx = int(x // pixel_por_minuto)
             segundo_idx = int((x % pixel_por_minuto) * 60 / pixel_por_minuto)
 
+            y_vals = [p[0][1] for p in cnt]
+            amplitude = max(y_vals) - min(y_vals)
+
             eventos.append({
                 "imagem": nome_arquivo,
                 "hora": linha_idx,
                 "minuto": minuto_idx,
                 "segundo": int(segundo_idx),
-                "intensidade": int(area)
+                "amplitude": int(amplitude)
             })
 
         return eventos
@@ -62,9 +65,8 @@ def processar_imagem(nome_arquivo):
 if __name__ == "__main__":
     inicio = time.time()
     total_imagens = len(arquivos)
-    print(f"Processando {total_imagens} imagens de forma completamente serial...")
+    print(f"🔧 Processando {total_imagens} imagens de forma completamente serial...")
 
-    # Definindo tamanho do lote
     lote_tamanho = 2000
     n_lotes = ceil(total_imagens / lote_tamanho)
 
@@ -83,5 +85,29 @@ if __name__ == "__main__":
         df_lote = pd.DataFrame(eventos_flat)
         df_lote.to_csv(f"lotes/lote_{i:03d}.csv", index=False)
 
+    print("\n📦 Unindo arquivos de todos os lotes...")
+    arquivos_lotes = sorted([f"lotes/{f}" for f in os.listdir("lotes") if f.startswith("lote_") and f.endswith(".csv")])
+    df_final = pd.concat([pd.read_csv(f) for f in arquivos_lotes])
+    df_final = df_final.sort_values(by=["imagem", "hora", "minuto", "segundo"]).reset_index(drop=True)
+
+    # Cálculo da magnitude (escala de Richter aproximada), com arredondamento para cima em 4 casas decimais
+    df_final["richter_aproximado"] = np.ceil(np.log10(df_final["amplitude"] + 1) * 10000) / 10000
+
+    # Salvar resultado final
+    df_final.to_csv("todos_eventos_sismicos.csv", index=False)
+    print("✅ Todos os eventos salvos em 'todos_eventos_sismicos.csv'")
+
+    # Salvar resumo
+    resumo = {
+        "total_eventos": len(df_final),
+        "total_imagens": total_imagens,
+        "media_eventos_por_imagem": round(len(df_final) / total_imagens, 2)
+    }
+    pd.DataFrame([resumo]).to_csv("resumo_eventos.csv", index=False)
+    print("📊 Resumo salvo em 'resumo_eventos.csv'")
+
+    # Adiciona coluna com a quantidade de eventos por imagem
+    df_final["eventos_por_imagem"] = df_final.groupby("imagem")["imagem"].transform("count")
+
     fim = time.time()
-    print(f"\n✅ Processamento concluído em {round(fim - inicio, 2)} segundos.")
+    print(f"\n✅ Processamento serial concluído em {round(fim - inicio, 2)} segundos.")

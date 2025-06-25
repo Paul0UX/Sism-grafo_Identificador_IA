@@ -8,7 +8,7 @@ pasta_destino = r"C:\Users\Leandro\Desktop\Sism-grafo_Identificador_IA\replicas"
 os.makedirs(pasta_destino, exist_ok=True)
 
 # Tamanho máximo em bytes (50 GB)
-tamanho_maximo = 2 * 1024 * 1024 * 1024  
+tamanho_maximo = 1 * 1024 * 1024 * 1024  
 
 # Inicialização de variáveis
 tamanho_total = 0
