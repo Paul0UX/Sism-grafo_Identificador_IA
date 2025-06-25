@@ -5,8 +5,41 @@ Config da maquina utilizada:
 -16 GB DDR5 (1x16GB) 5600MT/s
 -SSD de 512GB PCIe NVMe M.2 (Classe 25)
 
+# Instruções
+Antes de tudo, para que tudo funcione corretamente, recomendamos que você baixe o arquivo requirements.txt e execute o comando: "pip install -r requirements.txt" em seu terminal.
+
+Para utilizar este sistema, siga os passos a seguir: 
+# Passo 1
+1- Alterar o caminho das pastas dos arquivos:
+
+analisador.py: coloque o caminho da pasta onde estão as réplicas.
+
+multiplicador.py: coloque o caminho da pasta onde serão multiplicadas as imagens, e no outro o caminho onde estão os PNGs das imagens dos sismógrafos.
+
+serial.py: coloque o caminho da pasta onde estão as réplicas.
+  
+![image](https://github.com/user-attachments/assets/44501ef5-26e3-4b0c-a5c3-6e1e997c0071)
+
+# Passo 2
+2- Agora, escolha a quantidade de GB que deseja ter de réplicas das imagens dos sismógrafos. Em seguida, execute o multiplicador.py.
+
+![image](https://github.com/user-attachments/assets/71246835-e7e9-4db0-b3d8-0444964f0aad)
+
+# Passo 3
+3- Recomendamos que você execute o serial.py antes do multiplicador.py, para ter uma melhor noção do tempo e da eficiência, além de poder fazer comparações posteriormente.
+
+# Passo 4
+4- Logo após a conclusão do serial.py, execute o analisador.py com o seguinte comando em seu terminal: "python analisador.py -p número_threads". Recomendamos usar a quantidade máxima de -2, que corresponde ao máximo de núcleos da sua máquina, e em números pares. Por exemplo: se seu processador tem 20 núcleos, utilize até 18 threads.
+
+# Passo 5
+5- Após as execuções, você deverá notar que na pasta onde está localizado este projeto aparecerão dois arquivos: "todos_eventos_sismicos.csv" e "resumo_eventos.csv". Com esses arquivos, você pode usar o Orange Data Mining para visualizar os resultados com mais clareza, seguindo o procedimento: arraste esses dois arquivos para o aplicativo, conecte-os ao "Data Table" e, depois, abra o "Data Table".
+
+![image](https://github.com/user-attachments/assets/8f336163-9d1d-41f8-9b8b-637d60916940)
+
+![image](https://github.com/user-attachments/assets/60f4a0a7-ff20-426c-a52b-c637dcd82b31)
+
 # Introdução
-Iniciamos esta pesquisa acadêmica de programação paralela com o objetivo de desenvolver um sistema em Python onde uma inteligência artificial analisa uma grande quantidade de imagens, extraindo dados relevantes. Esses dados provêm do "Laboratório de Análise: Nana, Peru NNA_II, Vertical Component", que monitora e analisa abalos sísmicos na região do Peru.
+Iniciamos esta pesquisa acadêmica de programação paralela com o objetivo de desenvolver um sistema em Python onde analisa uma grande quantidade de imagens, extraindo dados relevantes. Esses dados provêm do "Laboratório de Análise: Nana, Peru NNA_II, Vertical Component", que monitora e analisa abalos sísmicos na região do Peru.
 
 ![simografo_dado](imagens_sis/1.png)
 
