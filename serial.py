@@ -11,7 +11,7 @@ minutos_por_linha = 60
 linhas_por_dia = 24
 
 # Caminho das imagens
-caminho_das_imagens = r"C:\Users\aluno\Desktop\Paralelismo\Sism-grafo_Identificador_IA\replicadas"
+caminho_das_imagens = r"C:\Users\Leandro\Desktop\Sism-grafo_Identificador_IA\replicas"
 arquivos = [f for f in os.listdir(caminho_das_imagens) if f.endswith(".png")]
 arquivos.sort()
 
