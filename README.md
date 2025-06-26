@@ -60,7 +60,6 @@ A realização de testes com diferentes quantidades de processos (1, 2, 4, 6, 8,
 
 | N° Processadores | Tempo (s) | Speedup (x) | % Mais Rápido |
 |-------------------|------------|--------------|--------------|
-| Serial            | 994.24     | 1.0000       | 0.00%        |
 | 1                 | 1072       | 0.927        | -7.30%       |
 | 2                 | 676.08     | 1.471        | +47.10%      |
 | 4                 | 399.44     | 2.491        | +149.10%     |
